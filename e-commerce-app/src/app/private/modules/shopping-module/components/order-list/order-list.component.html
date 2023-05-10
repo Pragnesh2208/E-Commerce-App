@@ -1,0 +1,28 @@
+<div class="container screen">
+    <div class="shopping">
+        <h3>Your Orders</h3>
+        <div class *ngFor="let orderItem of orderList?.orderItems">
+            <div class="shopping__item">
+                <div class=" row">
+                    <div class="col-md-5">
+                        <div class="shopping__img">
+                            <img [src]="orderItem.product.imageURL" alt="order">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="shopping__detail">
+                            <a routerLink="/{{ routePath.product }}/{{ routePath.show }}/{{ orderItem.product.id }}">{{
+                                orderItem.product.name
+                                }}</a>
+                            <span>{{ orderItem.product.price | currency }} per unit</span>
+                            <p>Quantity : {{ orderItem.quantity }}</p>
+                            <span>Total Price : {{ orderItem.price | currency }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <p *ngIf="orderList" class="shopping__total-cost">Total Cost: {{ orderList.totalPrice | currency }}</p>
+    </div>
+</div>

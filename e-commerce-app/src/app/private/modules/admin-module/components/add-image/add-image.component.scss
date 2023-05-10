@@ -1,0 +1,22 @@
+@import '../../../../../../assets/scss/abstracts/abstracts';
+
+form {
+    border: none;
+
+    .form-group {
+        margin-bottom: 1.6rem;
+
+        label {
+            display: block;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        input {
+            border: none;
+            display: block;
+            padding: 0rem;
+            font-size: 1.6rem;
+        }
+    }
+}

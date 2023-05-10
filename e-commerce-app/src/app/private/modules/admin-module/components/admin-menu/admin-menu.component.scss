@@ -1,0 +1,14 @@
+@import '../../../../../../assets/scss/abstracts/abstracts';
+
+a {
+  background-color: $azure-color;
+  color: $white-color;
+  margin: 5.5rem 0;
+  padding: 1.6rem 3.2rem;
+  font-size: 3rem;
+  border-radius: 0.48rem;
+
+  &:hover {
+    background-color: $true-blue-color;
+  }
+}

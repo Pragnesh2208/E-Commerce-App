@@ -1,0 +1,38 @@
+<div class="container screen">
+    <div class="shopping">
+        <h3>Shopping cart</h3>
+        <div *ngFor="let item of cart?.cartItems; let idx=index;">
+            <div class="shopping__item">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="shopping__img">
+                            <img [src]="item.product.imageURL" alt="img">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="shopping__detail">
+                            <a routerLink="{{routePath.showProduct}}/{{ item.product.id }}">{{ item.product.name }}</a>
+                            <p>{{ item.product.price | currency }} per unit</p>
+                            <form [formGroup]="priceForm">
+                                <div formArrayName="quantity">Quantity :
+                                    <input type="number" formControlName="{{ idx }}"
+                                        (blur)="updateItemFromCart(item, idx)">
+                                </div>
+                                <span>Total Price: <strong> {{ getProductPrice(item.product.price, idx) | currency
+                                        }}</strong></span>
+                            </form>
+                            <a (click)="removeItemFromCart(item.id)">Remove From Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="shopping__total-cost">
+            <h2 *ngIf="cart">Total: {{ cart.totalCost }}</h2>
+            <button type="button" (click)="confirmOrder()" [class.btn-disabled]="!activeBtn"
+                class="btn btn-primary btn--blue">Confirm
+                Order</button>
+        </div>
+    </div>
+</div>

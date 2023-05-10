@@ -1,0 +1,27 @@
+<div class="container screen">
+    <div class="shopping">
+        <h3>Your Orders</h3>
+        <div *ngFor="let order of orders">
+            <div *ngIf="order.sessionId!=='null'">
+                <div class="shopping__item">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="shopping__img">
+                                <img [src]="order.orderItems[0].product.imageURL" alt="order">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="shopping__detail">
+                                <a routerLink="{{ route.order }}/{{ order.id }}">Order No : {{ order.id }}</a>
+                                <span>1 item</span>
+                                <p>Total Cost : {{ order.totalPrice | currency }}</p>
+                                <span>Ordered on : {{ order.createdDate | date: "yyyy-MM-dd"}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

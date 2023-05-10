@@ -1,0 +1,8 @@
+@import '../../../././../../../assets/scss/abstracts/abstracts';
+
+a {
+  &.btn-secondary {
+    background-color: $bright-gray-color;
+    color: $black-color;
+  }
+}

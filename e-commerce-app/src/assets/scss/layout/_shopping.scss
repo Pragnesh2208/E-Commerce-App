@@ -1,0 +1,73 @@
+.shopping {
+    &__item {
+        margin: auto;
+        width: 76rem;
+    }
+
+    h3 {
+        @include font(2.8rem, 1.2, 400, $black-color);
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        @include font(2rem, initial, 700, $outer-space-color);
+        margin: 2rem 0rem 0.8rem 0rem;
+    }
+
+    &__img {
+        height: 16rem;
+
+        img {
+            object-fit: cover;
+
+            border-radius: 0.3rem;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__detail {
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a {
+            @include font(1.6rem, initial, initial, $azure-color);
+            display: block;
+            margin-bottom: 1.2rem;
+
+            &:hover {
+                color: $crayola-color;
+                text-decoration: underline;
+            }
+        }
+
+        >p {
+            @include font(1.6rem, initial, 700, $gunmetal-color);
+            margin-bottom: 0.4rem;
+        }
+
+        span {
+            @include font(1.6rem, initial, initial, $gunmetal-color);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+    }
+
+    &__total-cost {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 2rem;
+    }
+
+    a {
+        display: inline-block;
+    }
+}
+
+hr {
+    border-top: 1px solid rgba($black-color, 0.1);
+    margin: 1.5rem 0rem 3rem 0rem;
+}

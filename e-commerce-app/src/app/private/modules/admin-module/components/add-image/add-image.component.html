@@ -1,0 +1,10 @@
+<div class="container screen">
+    <h3>Add a new Image</h3>
+    <form>
+        <div class="form-group" method="POST" enctype="multipart/form-data">
+            <label>Select image :</label>
+            <input type="file" (change)="selectImage($event)">
+        </div>
+        <button type="button" class="btn btn-primary btn--green" (click)="uploadImage()">upload</button>
+    </form>
+</div>

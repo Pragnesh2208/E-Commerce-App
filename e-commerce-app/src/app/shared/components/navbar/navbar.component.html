@@ -1,0 +1,54 @@
+<div class="navbar">
+  <nav class="row">
+    <div class="col-md-2">
+      <a routerLink="" class="navbar__logo">
+        <img src="../../../../assets/images/logo.png" alt="logo">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <div class="navbar__search">
+        <input type="text" placeholder="Search Items">
+        <i class="ri-search-line"></i>
+      </div>
+    </div>
+
+    <div class="col-md-4 pr-0">
+      <div class="navbar__navigation">
+        <ul class="row">
+          <li>
+            <a (click)="toggle(true)" class="browser">Browse <i class="ri-arrow-down-s-fill"></i></a>
+
+          </li>
+
+          <li>
+            <a (click)="toggle(false)" class="accounts">Accounts<i class="ri-arrow-down-s-fill"></i></a>
+          </li>
+
+          <li>
+            <a [routerLink]="routePath.order">Orders</a>
+          </li>
+
+          <li>
+
+            <span [class.hidden]="!isLogin" class="navbar__badge">{{ cartLength }}</span>
+            <a [routerLink]="routePath.cart"><i class="ri-shopping-cart-2-line"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar__toggle" [hidden]="!stateObject.browserToggle">
+        <li *ngFor=" let item of browserMenu ">
+          <a [routerLink]="item.menuUrl">{{ item.menuName }}</a>
+        </li>
+      </ul>
+      <ul class="navbar__toggle navbar__toggle--left" [hidden]="!stateObject.accountsToggle">
+        <li *ngFor=" let item of accountsMenu ">
+          <a *ngIf="item.menuName !== 'SignOut'" [routerLink]="item.menuUrl">{{ item.menuName }}</a>
+          <a *ngIf="item.menuName === 'SignOut'" [routerLink]="item.menuUrl" (click)="removeToken()">{{ item.menuName
+            }}</a>
+
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

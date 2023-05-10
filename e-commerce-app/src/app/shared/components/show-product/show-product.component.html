@@ -1,0 +1,57 @@
+<div class="container screen">
+  <div class="show-product">
+    <div class="col-md-4">
+      <div class="show-product__image">
+        <img [src]="contentObject.imageURL" [alt]="contentObject.name">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="show-product__detail">
+        <h4>{{ contentObject.name }}</h4>
+        <span>{{ contentObject.categoryName }}</span>
+        <p>
+          <span> {{ contentObject.price | currency }} </span>
+        </p>
+        <p> {{ contentObject.description }} </p>
+        <form class="row">
+          <div>
+            <span> Quantity</span>
+            <input type="number" [formControl]="quantity">
+          </div>
+          <div>
+            <a class="btn btn--light-weight btn-primary btn--mellow-apricot" (click)="addToCart(contentObject)">
+              <span>
+                Add to Cart
+              </span>
+              <i class="ri-shopping-cart-2-line"></i>
+            </a>
+          </div>
+        </form>
+        <h5>Features</h5>
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae!
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </li>
+        </ul>
+        <a class="btn btn-primary btn--light-weight btn--gray" (click)="addToWishlist(contentObject)">{{
+          wishListButtonName }}</a>
+        <a [routerLink]="routePath.cart" class="btn btn-primary btn--light-weight btn--black">
+          <span>Show Cart</span>
+          <i class="ri-shopping-cart-2-line"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

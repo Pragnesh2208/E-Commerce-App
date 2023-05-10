@@ -1,0 +1,138 @@
+@import '../../../../assets/scss/main.scss';
+
+.navbar {
+  background-color: $onyx-color;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+
+  &__search {
+    position: relative;
+    margin: auto;
+    width: 100%;
+
+    input {
+      border: 0.2rem solid $light-gray-color;
+      width: calc(100% - 4rem);
+      padding: 0.5rem 1rem;
+      line-height: 1.5;
+      border-top-left-radius: 0.4rem;
+      border-bottom-left-radius: 0.4rem;
+      font-size: 1.6rem;
+
+      &:focus {
+        background-color: $white-color;
+        color: $davys-gray-color;
+        border-color: $french-sky-blue-color;
+        box-shadow: 0 0 0 0.32rem rgba($azure-color , 0.25);
+        outline: 0;
+      }
+    }
+
+    i {
+      background-color: $mellow-apricot-color;
+      border-color: $mellow-apricot-color;
+      position: absolute;
+      right: 0;
+      line-height: 1.5;
+      font-size: 1.6rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 0.125rem 0 0 0.125rem;
+    }
+  }
+
+  &__toggle {
+    background-color: $white-color;
+    color: $black-color;
+    border: 0.1rem solid rgba($black-color , 0.15);
+    position: absolute;
+    top: 100%;
+    left: 40%;
+    padding: 0.4rem 0rem;
+    border-radius: 0.4rem;
+    z-index: 3;
+
+    &--left {
+      left: 60%;
+    }
+
+    li {
+      padding: 0.5rem 0rem;
+      width: 16rem;
+
+      a {
+        color: $black-color;
+        display: block;
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 0rem 2rem;
+      }
+
+      &:hover {
+        background-color: $true-blue-color;
+
+        a {
+
+          color: $white-color;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__navigation {
+    justify-content: space-between;
+
+    ul {
+      justify-content: flex-end;
+      align-items: center;
+
+      li {
+        a {
+          color: $white-color;
+          font-size: 1.6rem;
+          padding: 0rem 0.6rem;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        &:last-child {
+          position: relative;
+
+          a {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    text-align: center;
+    padding: 0rem;
+    width: 100%;
+
+    >img {
+      width: 15rem;
+      height: 3.1rem;
+    }
+  }
+
+  &__badge {
+    color: $white-color;
+    background-color: $red-color;
+    position: absolute;
+    text-align: center;
+    height: 1.7rem;
+    width: 1.7rem;
+    left: 50%;
+    top: 5%;
+    z-index: 2;
+    line-height: 1.7rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

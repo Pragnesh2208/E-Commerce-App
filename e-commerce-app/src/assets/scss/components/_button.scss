@@ -1,0 +1,80 @@
+@import '../abstracts/abstracts';
+
+.btn {
+    transition: color .15s ease-in-out, background-color 0.15s ease-in-out, border-color .15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border: 0.1rem solid transparent;
+    display: inline-block;
+    cursor: pointer;
+
+    &-primary {
+        padding: 0.6rem 1.2rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        border-radius: 0.25rem;
+        line-height: 1.5;
+    }
+
+    &--small {
+        @include font(1.5rem, 1, 300);
+        background-color: $maize-color;
+        border: 0.1rem solid $black-color;
+        padding: 0.3rem 1.5rem;
+    }
+
+    &-secondary {
+        position: relative;
+        left: calc(100% - 1rem);
+        transform: translateX(-100%);
+        line-height: 1.5;
+        font-size: 1.6rem;
+        padding: 0.6rem 1.2rem;
+        font-weight: 400;
+        border-radius: 0.4rem;
+    }
+
+    &--blue {
+        color: $white-color;
+        background-color: $azure-color;
+        border-color: $azure-color;
+
+        &:hover {
+            color: $white-color;
+            background-color: $true-blue-color;
+            border-color: $true-blue-color;
+        }
+    }
+
+    &--green {
+        color: $white-color;
+        background-color: $blue-green-color;
+        border-color: $blue-green-color;
+
+        &:hover {
+            color: $white-color;
+            background-color: $metallic-seaweed;
+            border-color: $metallic-seaweed;
+        }
+    }
+
+    &--light-weight {
+        font-weight: 400;
+    }
+
+    &--mellow-apricot {
+        background-color: $mellow-apricot-color;
+    }
+
+    &--gray {
+        background-color: $gray-color;
+    }
+
+    &--black {
+        background-color: $black-color;
+        color: $white-color;
+    }
+
+    &--bright-gray {
+        background-color: $bright-gray-color;
+        color: $black-color;
+    }
+}

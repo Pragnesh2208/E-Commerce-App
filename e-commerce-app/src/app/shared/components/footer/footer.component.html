@@ -1,0 +1,19 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6" *ngFor="let footer of footerList">
+                <ul>
+                    <li>
+                        <h4>{{ footer.title }}</h4>
+                    </li>
+                    <li *ngFor="let item of footer.values">
+                        <a href="#">{{ item }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="center" id="logo">
+            <img src="../../../../assets/images/logo.png" alt="logo">
+        </div>
+    </div>
+</footer>

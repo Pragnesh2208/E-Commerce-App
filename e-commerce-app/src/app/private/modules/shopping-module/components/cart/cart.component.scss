@@ -1,0 +1,29 @@
+@import '../../../../../../assets/scss/abstracts/abstracts';
+
+form {
+    color: $dark-gunmetal-color;
+    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+
+    input {
+        border: none;
+        width: 3rem;
+
+        &:focus {
+            border: 0.2rem solid $black-color;
+            outline: none;
+            border-radius: 0.3rem;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.btn-disabled {
+    opacity: 0.65;
+    pointer-events: none;
+}

@@ -1,0 +1,42 @@
+@import '../../../../assets/scss/abstracts/abstracts';
+
+footer {
+    background-color: $gunmetal-color;
+
+    .container {
+        >div {
+            padding-top: 4.8rem;
+        }
+    }
+
+    ul {
+        padding: 0rem 0rem 4rem 4rem;
+
+        li {
+            padding-bottom: 1rem;
+            line-height: 2.5rem;
+        }
+
+        h4 {
+            @include font(1.6rem, initial, 700, $ghost-white-color);
+        }
+
+        a {
+            @include font(1.6rem, initial, 300, $gainsboro-color);
+
+            &:hover {
+                color: $crayola-color;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    #logo {
+        padding: 4.8rem 0px;
+
+        img {
+            height: 3.1rem;
+            width: 15rem;
+        }
+    }
+}

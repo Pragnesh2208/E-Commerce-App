@@ -1,0 +1,17 @@
+<div class="container screen">
+    <h3>Your WishList</h3>
+    <div class="row">
+        <div class="col-md-4 py-1" *ngFor="let item of wishList">
+            <div class="card">
+                <div class="card__img">
+                    <img [src]="item.imageURL" alt="img">
+                </div>
+                <div class="card__detail">
+                    <a routerLink="/{{route.product}}/{{route.show}}/{{ item.id }}">{{ item.name }}</a>
+                    <p>{{ item.price }}</p>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+@mixin font($font-size: initial,
+    $line-height: initial,
+    $font-weight: initial,
+    $font-color: initial) {
+
+    @if ($font-size  !=initial) {
+        font-size: $font-size;
+    }
+
+    @if ($line-height  !=initial) {
+        line-height: $line-height;
+    }
+
+    @if ($font-color  !=initial) {
+        color: $font-color;
+    }
+
+    @if ($font-weight  !=initial) {
+        font-weight: $font-weight;
+    }
+}

@@ -1,0 +1,41 @@
+form {
+    border-bottom: 0.1rem solid rgba($black-color, 0.1);
+    padding: 2.4rem;
+
+    h2 {
+        color: $dark-gunmetal-color;
+        margin-bottom: 3.2rem;
+        font-size: 3.2rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .form-group {
+        margin-bottom: 1.6rem;
+
+        label {
+            font-size: 1.6rem;
+        }
+
+        input {
+            background-color: $white-color;
+            color: $davy-grey-color;
+            border: 0.1rem solid $light-gray-color;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            padding: 0.6rem 1.2rem;
+            margin: 0.7rem 0rem 0.5rem 0rem;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            border-radius: 0.4rem;
+            width: 100%;
+
+            &:focus {
+                color: $davy-grey-color;
+                background-color: $white-color;
+                border-color: $french-sky-blue-color;
+                box-shadow: 0 0 0 0.3rem rgba($blue-color, 0.25);
+                outline: 0;
+            }
+        }
+    }
+}

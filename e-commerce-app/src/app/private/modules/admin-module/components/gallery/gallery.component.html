@@ -1,0 +1,18 @@
+<div class="container screen">
+  <h3>{{ galleryContentDetail.title }}</h3>
+  <div class="mr-3">
+    <a [routerLink]="galleryContentDetail.addBtnUrl" class="btn inline-block btn-secondary">
+      {{ galleryContentDetail.addBtn }}
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-md-4 pl-0 pr-0" *ngFor="let item of contentObject">
+      <div class="image-box">
+        <div class="image-box__image">
+          <img [src]="item.url" [alt]="item.name" />
+          <a (click)="copyMessage(item.url)" class="btn btn-primary btn--light-weight btn--green">Copy Address</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

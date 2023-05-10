@@ -1,0 +1,5 @@
+<div class="container screen center">
+  <div *ngFor="let item of adminMenu">
+    <a class="btn" [routerLink]="item.menuUrl">{{ item.menuName }}</a>
+  </div>
+</div>

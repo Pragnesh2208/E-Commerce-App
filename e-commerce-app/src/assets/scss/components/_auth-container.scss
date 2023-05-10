@@ -1,0 +1,10 @@
+.auth-container {
+    border: 0.1rem solid $platinum-color;
+    margin: auto;
+    width: 45rem;
+
+    form {
+        border-bottom: 0.1rem solid rgba($black-color, 0.1);
+        padding: 2.4rem;
+    }
+}

@@ -1,0 +1,22 @@
+<div class="container screen">
+  <h3>{{ contentDetail.title }}</h3>
+  <div>
+    <a [class.hidden]=!isAdmin class="btn-secondary btn" routerLink="{{ contentDetail.addBtnUrl }}">{{
+      contentDetail.addBtn }}</a>
+  </div>
+  <div class="row">
+    <div class="col-md-4 py-1" *ngFor="let item of contentObject">
+      <div class="card">
+        <div class="card__img">
+          <img src="{{ item.imageUrl }}" alt="img">
+        </div>
+        <div class="card__detail">
+          <a routerLink="{{ contentDetail.productCategoryUrl }}/{{ item.id}}"> {{
+            item.categoryName }} </a>
+          <p> {{ item.description }} </p>
+          <a [class.hidden]=!isAdmin class="btn" routerLink="{{ contentDetail.editBtnUrl }}/{{ item.id }}">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

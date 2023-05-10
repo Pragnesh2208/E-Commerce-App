@@ -1,0 +1,89 @@
+html {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+  @include font(2.4rem, 1.2, 700, $outer-space-color);
+  text-align: center;
+  margin-bottom: 0.8rem;
+  padding-top: 1.6rem;
+}
+
+.container {
+  max-width: 114rem;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-red {
+  color: $red-color;
+  font-size: 1.6rem;
+}
+
+.text-danger {
+  color: $persian-plum-color;
+  background-color: $pale-pink-color;
+  border-color: $orchid-pink-color;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  border-radius: 0.7rem;
+  font-size: 10px;
+}
+
+.pl-0 {
+  padding-left: 0px;
+}
+
+.pr-0 {
+  padding-right: 0px;
+}
+
+.logo {
+  display: block;
+  text-align: center;
+
+  img {
+    height: 3.1rem;
+    width: 15rem;
+  }
+}
+
+p {
+  color: $auro-metal-saurus-color;
+  margin-bottom: 0.6rem;
+  font-size: 1.28rem;
+}
+
+.screen {
+  min-height: calc(100vh - 53.8rem);
+  margin: 4rem auto;
+}

@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>{{ contentDetail.title }}</h3>
+  <div *ngIf=" contentObject && contentObject.length === 0" class="error-block">
+    <p>Sorry No product found</p>
+    <img src="../../../../assets/images/no-product-found.jpg" alt="">
+  </div>
+  <div *ngIf="contentObject && contentObject.length > 0">
+    <div>
+      <a [class.hidden]=!isAdmin [routerLink]="contentDetail.addBtnUrl" class="btn-secondary btn">{{
+        contentDetail.addBtn }}</a>
+    </div>
+    <div class="row">
+      <div class="col-md-4 py-1" *ngFor="let item of contentObject">
+        <div class="card">
+          <div class="card__img">
+            <img [src]="item.imageURL" alt="img">
+          </div>
+          <div class="card__detail">
+            <a routerLink="{{ contentDetail.productCategoryUrl }}/{{ item.id }}"> {{
+              item.name }} </a>
+            <span><sup>&#36;</sup>{{ item.price }}</span>
+            <p> {{ item.description }} </p>
+            <a [class.hidden]=!isAdmin class="btn" routerLink="{{ contentDetail.editBtnUrl }}/{{ item.id }}">Edit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, RouterModule} from '@angular/router';
 
 import {Order} from '../../models/shopping.model';
 import {ROUTE} from 'src/app/shared/constants/index';
@@ -18,7 +18,7 @@ import { ShoppingRoutingModule } from '../../shopping-routing.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ShoppingRoutingModule,
+    RouterModule
   ]
 })
 export class OrderComponent implements OnInit {

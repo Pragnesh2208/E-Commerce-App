@@ -22,6 +22,7 @@ import {API} from '../../../../shared/constants/index';
 @Injectable({
   providedIn: 'root',
 })
+
 export class ShoppingService {
   token = this.ecd.getTokenFromLocalStorage();
   cartLength = new BehaviorSubject<number>(-1);

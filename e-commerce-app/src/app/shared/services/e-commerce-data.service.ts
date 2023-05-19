@@ -13,11 +13,11 @@ export class ECommerceDataService {
   constructor(private http: HttpClient) {}
 
   getTokenFromLocalStorage() {
-    if (this.token !== '' && this.token !== null) {
+    if (this.token !== '' && this.token) {
       return this.token;
     }
     const tempToken = localStorage.getItem('token');
-    this.token = tempToken ? tempToken : " ";
+    this.token = tempToken ? tempToken : '';
     return this.token;
   }
 
@@ -32,5 +32,9 @@ export class ECommerceDataService {
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(API.product);
+  }
+
+  getImage(url : string) : Observable<string> {
+    return this.http.get<string>(url);
   }
 }

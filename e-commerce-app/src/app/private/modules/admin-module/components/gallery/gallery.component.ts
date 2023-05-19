@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, RouterModule} from '@angular/router';
 
 import {Gallery} from '../../../admin-module/models/admin.model';
 import {galleryDetail} from '../../constants/admin.constants';
@@ -19,9 +19,9 @@ import { BrowserModule } from '@angular/platform-browser';
   standalone : true,
   imports: [
     CommonModule,
-    BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule
   ],
 })
 export class GalleryComponent implements OnInit {

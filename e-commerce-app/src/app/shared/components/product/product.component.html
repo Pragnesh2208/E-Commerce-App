@@ -13,9 +13,9 @@
       <div class="col-md-4 py-1" *ngFor="let item of contentObject">
         <div class="card">
           <div class="card__img">
-            <img [src]="item.imageURL" alt="img">
+            <img [src]="item.imageURL" alt="img" height="auto" width="auto">
           </div>
-          <div class="card__detail">
+          <div class="card__detail"> 
             <a routerLink="{{ contentDetail.productCategoryUrl }}/{{ item.id }}"> {{
               item.name }} </a>
             <span><sup>&#36;</sup>{{ item.price }}</span>

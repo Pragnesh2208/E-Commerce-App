@@ -27,6 +27,9 @@
         color: $outer-space-color;
         display: block;
         margin-bottom: 1rem;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         &:hover {
           font-weight: 500;

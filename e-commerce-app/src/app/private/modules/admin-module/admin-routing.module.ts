@@ -25,10 +25,6 @@ import {
 import {AdminComponent} from './admin.component';
 
 const routes: Routes = [
-  {
-    path: ROUTE.admin,
-    component: AdminComponent,
-    children: [
       {path: '', component: AdminMenuComponent},
       {
         path: ROUTE.category,
@@ -73,9 +69,6 @@ const routes: Routes = [
         path: `${ROUTE.gallery}/${ROUTE.add}`,
         component: AddImageComponent,
       },
-    ],
-    canActivate: [AuthGuard],
-  },
 ];
 
 @NgModule({

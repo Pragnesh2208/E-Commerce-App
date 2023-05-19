@@ -25,7 +25,6 @@ import { BrowserModule } from '@angular/platform-browser';
   standalone : true,
   imports: [
     CommonModule,
-    BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],

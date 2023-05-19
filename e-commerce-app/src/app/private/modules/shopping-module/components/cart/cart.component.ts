@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, RouterModule} from '@angular/router';
 import {FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BehaviorSubject, concatMap} from 'rxjs';
 
@@ -28,7 +28,7 @@ import { ShoppingRoutingModule } from '../../shopping-routing.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ShoppingRoutingModule,
+    RouterModule
   ]
 })
 export class CartComponent implements OnInit {

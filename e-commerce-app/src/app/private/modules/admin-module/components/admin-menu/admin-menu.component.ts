@@ -4,7 +4,7 @@ import {adminMenu} from '../../constants/admin.constants';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-menu',
@@ -13,9 +13,9 @@ import { BrowserModule } from '@angular/platform-browser';
   standalone : true,
   imports: [
     CommonModule,
-    BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule
   ],
 })
 export class AdminMenuComponent {

@@ -36,12 +36,12 @@
         </ul>
       </div>
 
-      <ul class="navbar__toggle" [hidden]="!stateObject.browserToggle">
+      <ul class="navbar__toggle" *ngIf="stateObject.browserToggle">
         <li *ngFor=" let item of browserMenu ">
           <a [routerLink]="item.menuUrl">{{ item.menuName }}</a>
         </li>
       </ul>
-      <ul class="navbar__toggle navbar__toggle--left" [hidden]="!stateObject.accountsToggle">
+      <ul class="navbar__toggle navbar__toggle--left" *ngIf="stateObject.accountsToggle">
         <li *ngFor=" let item of accountsMenu ">
           <a *ngIf="item.menuName !== 'SignOut'" [routerLink]="item.menuUrl">{{ item.menuName }}</a>
           <a *ngIf="item.menuName === 'SignOut'" [routerLink]="item.menuUrl" (click)="removeToken()">{{ item.menuName

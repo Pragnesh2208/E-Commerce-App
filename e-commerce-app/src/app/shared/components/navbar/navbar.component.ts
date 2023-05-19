@@ -1,13 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, Injectable, OnInit, inject} from '@angular/core';
 import {Renderer2} from '@angular/core';
 
-import {ShoppingService} from '../../../private-module/modules/shopping-module/services/shopping.service';
+import {ShoppingService} from '../../../private/modules/shopping-module/services/shopping.service';
 import {ROUTE} from '../../constants';
 import {ECommerceDataService} from '../../services/e-commerce-data.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 interface MenuType {
@@ -27,13 +26,12 @@ export const toggleState = {
   standalone: true,
   imports :[ CommonModule,
     ReactiveFormsModule,
-    BrowserModule,
     HttpClientModule,
     RouterModule]
 })
 export class NavbarComponent implements OnInit {
   readonly routePath = ROUTE;
-  cartLength: number;
+  cartLength !: number ;
   isLogin: boolean = false;
   browserMenu: MenuType[] = [
     {
@@ -42,11 +40,11 @@ export class NavbarComponent implements OnInit {
     },
     {
       menuName: 'Product',
-      menuUrl: `/${ROUTE.product}`,
+      menuUrl: `${ROUTE.product}`,
     },
     {
       menuName: 'Category',
-      menuUrl: `/${ROUTE.category}`,
+      menuUrl: `${ROUTE.category}`,
     },
   ];
   accountsMenu: MenuType[] = [
@@ -65,10 +63,10 @@ export class NavbarComponent implements OnInit {
   ];
 
   stateObject = toggleState;
+  shoppingService : ShoppingService = inject(ShoppingService);
 
   constructor(
     private renderer2: Renderer2,
-    private shoppingService: ShoppingService,
     private ecd: ECommerceDataService,
   ) {}
 
@@ -85,12 +83,9 @@ export class NavbarComponent implements OnInit {
       }
     });
 
-    this.shoppingService.cartLength.subscribe((cartLength) => {
+    this.shoppingService.getCartLength().subscribe((cartLength : number)  => {
       if (cartLength === -1) {
-        this.shoppingService.getCartLength().subscribe((cartLength: number) => {
-          this.cartLength = cartLength;
-          console.log(this.cartLength);
-        });
+          this.cartLength = 0;
       } else {
         this.cartLength = cartLength;
       }

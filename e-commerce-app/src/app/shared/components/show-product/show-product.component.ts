@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, RouterModule} from '@angular/router';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
-import {ShoppingService} from 'src/app/private-module/modules/shopping-module/services/shopping.service';
+import {ShoppingService} from 'src/app/private/modules/shopping-module/services/shopping.service';
 import {Product, CategoryProduct} from '../../models/shared.model';
 
 import {NotificationService} from '../../services/notification.service';
 
-import {AddToCart} from 'src/app/private-module/modules/shopping-module/models/shopping.model';
+import {AddToCart} from 'src/app/private/modules/shopping-module/models/shopping.model';
 import {SuccessResponse} from '../../models/shared.model';
 import {BASE, ROUTE, MESSAGE} from '../../constants/index';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,6 @@ import { BrowserModule } from '@angular/platform-browser';
   standalone: true,
   imports :[ CommonModule,
     ReactiveFormsModule,
-    BrowserModule,
     HttpClientModule,
     RouterModule,]
 })

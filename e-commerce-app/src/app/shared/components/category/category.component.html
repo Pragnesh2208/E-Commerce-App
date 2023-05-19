@@ -8,7 +8,7 @@
     <div class="col-md-4 py-1" *ngFor="let item of contentObject">
       <div class="card">
         <div class="card__img">
-          <img src="{{ item.imageUrl }}" alt="img">
+          <img  [src]="item.imageUrl"  alt="img">
         </div>
         <div class="card__detail">
           <a routerLink="{{ contentDetail.productCategoryUrl }}/{{ item.id}}"> {{
@@ -16,7 +16,8 @@
           <p> {{ item.description }} </p>
           <a [class.hidden]=!isAdmin class="btn" routerLink="{{ contentDetail.editBtnUrl }}/{{ item.id }}">Edit</a>
         </div>
-      </div>
     </div>
   </div>
+  </div>
+  
 </div>

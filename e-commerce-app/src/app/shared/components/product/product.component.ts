@@ -3,7 +3,7 @@ import {ActivatedRoute, Router, RouterModule} from '@angular/router';
 
 import {Product} from '../../models/shared.model';
 import {BASE, ROUTE} from '../../constants/index';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,9 +15,9 @@ import { BrowserModule } from '@angular/platform-browser';
   standalone: true,
   imports :[ CommonModule,
     ReactiveFormsModule,
-    BrowserModule,
     HttpClientModule,
-    RouterModule,]
+    RouterModule,
+    NgOptimizedImage]
 })
 export class ProductComponent implements OnInit {
   contentDetail = {
@@ -41,7 +41,6 @@ export class ProductComponent implements OnInit {
     this.isProductCategory = this.productId ? true : false;
     this.isAdmin = this.router.url.includes('admin');
     this.isDashboard = !this.router.url.includes('product');
-    console.log(this.isAdmin);
     if (this.isProductCategory) {
       this.activatedRoute.data.subscribe((response) => {
         this.contentObject = response['category']['products'];

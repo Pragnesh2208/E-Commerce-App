@@ -8,7 +8,7 @@ import {ROUTE, MESSAGE} from 'src/app/shared/constants/index';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-add-image',
@@ -17,14 +17,13 @@ import { BrowserModule } from '@angular/platform-browser';
   standalone : true,
   imports: [
     CommonModule,
-    BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],
 })
 export class AddImageComponent {
   readonly routePath = ROUTE;
-  file!: File;
+  file : File | null = null;
 
   constructor(
     private adminService: AdminService,
@@ -32,21 +31,28 @@ export class AddImageComponent {
     private notificationService: NotificationService,
   ) {}
 
-  selectImage(event: Event): void {
-    this.file = (<HTMLInputElement>event.target).files[0] as File;
+  selectImage(event : Event): void {
+    const files = (event.target as HTMLInputElement)?.files;
+    if(files)
+      this.file = files[0] as File;
   }
 
   uploadImage(): void {
+    if(this.file)
     this.adminService.uploadImage(this.file).subscribe(
-      (response) => {
-        if (response.ok) {
-          this.route.navigate([this.routePath.adminGallery]);
-          this.notificationService.success(MESSAGE.addImage);
+      {
+        next : response => {
+          if (response.ok) {
+            this.route.navigate([this.routePath.adminGallery]);
+            this.notificationService.success(MESSAGE.addImage);
+          }
+        },
+        error : e =>{
+            this.notificationService.failed(MESSAGE.reqiredImage);
+        },
+        complete : () =>{
         }
-      },
-      (e) => {
-        this.notificationService.failed(MESSAGE.reqiredImage);
-      },
+      }
     );
   }
 }

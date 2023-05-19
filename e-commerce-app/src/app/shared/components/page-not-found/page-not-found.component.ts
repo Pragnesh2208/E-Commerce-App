@@ -14,7 +14,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports :[ CommonModule,
     ReactiveFormsModule,
-    BrowserModule,
     HttpClientModule,
     RouterModule,]
 })

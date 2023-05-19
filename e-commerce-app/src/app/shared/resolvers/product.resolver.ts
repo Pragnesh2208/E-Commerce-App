@@ -28,7 +28,7 @@ export class ProductComponentResolver
       mergeMap((products) => {
         if (productId) {
           productId = Number(productId);
-          let product: Product = products.find(
+          const product = products.find(
             (product) => product.id === productId,
           );
           if (product) {
@@ -37,7 +37,7 @@ export class ProductComponentResolver
                 const categoryId = product.categoryId;
                 product.categoryName = categories.find(
                   (category) => category.id === categoryId,
-                ).categoryName;
+                )?.categoryName;
 
                 return of(product);
               }),

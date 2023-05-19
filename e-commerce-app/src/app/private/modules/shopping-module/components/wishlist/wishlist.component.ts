@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, RouterModule} from '@angular/router';
 
 import {Product} from '../../../../../shared/models/shared.model';
 
@@ -19,7 +19,7 @@ import { ShoppingRoutingModule } from '../../shopping-routing.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ShoppingRoutingModule,
+    RouterModule
   ]
 })
 export class WishlistComponent implements OnInit {

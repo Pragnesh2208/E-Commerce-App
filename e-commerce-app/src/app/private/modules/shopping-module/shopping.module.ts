@@ -16,11 +16,6 @@ import {SharedModule} from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    CartComponent,
-    WishlistComponent,
-    ShoppingComponent,
-    OrderComponent,
-    OrderListComponent,
   ],
   imports: [
     CommonModule,

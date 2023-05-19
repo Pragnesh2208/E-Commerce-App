@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpEventType, HttpResponse} from '@angular/common/http';
+import {Observable, catchError, map, throwError} from 'rxjs';
 
 import {
   Category,
@@ -44,8 +44,7 @@ export class AdminService {
 
   uploadImage(imageFile: File): Observable<any> {
     let formParams = new FormData();
-    formParams.append('file', imageFile);
-
+    formParams.append('file' , imageFile);
     return this.http.post(`${API.uploadImage}`, formParams, {
       reportProgress: true,
       observe: 'events',

@@ -30,7 +30,6 @@ export interface CategoryDetail {
   standalone : true,
   imports: [
     CommonModule,
-    BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],

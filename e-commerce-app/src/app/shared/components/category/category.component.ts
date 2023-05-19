@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, inject} from '@angular/core';
 import {Router, ActivatedRoute, RouterModule} from '@angular/router';
 
 import {Category} from '../../models/shared.model';
 
 import {BASE, ROUTE} from '../../constants/index';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import { ECommerceDataService } from '../../services/e-commerce-data.service';
 
 @Component({
   selector: 'app-category',
@@ -16,9 +17,9 @@ import {HttpClientModule} from '@angular/common/http';
   standalone: true,
   imports :[ CommonModule,
     ReactiveFormsModule,
-    BrowserModule,
     HttpClientModule,
-    RouterModule,]
+    RouterModule , 
+    NgOptimizedImage]
   
 })
 export class CategoryComponent implements OnInit {
@@ -30,22 +31,34 @@ export class CategoryComponent implements OnInit {
     editBtnUrl: ROUTE.edit,
   };
 
-  contentObject: Category[];
+  contentObject: Category[] =[];
   isAdmin: boolean = false;
   isDashboard: boolean = false;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+    constructor(private router: Router, private activatedRoute: ActivatedRoute , private ecommerceService :ECommerceDataService ) {}
 
   ngOnInit(): void {
     this.isAdmin = this.router.url.includes('admin');
     this.isDashboard = !this.router.url.includes('category');
     this.activatedRoute.data.subscribe((response) => {
       this.contentObject = response['categories'];
-
       if (this.isDashboard) {
         this.contentDetail.title = BASE.topCategory;
         this.contentObject.splice(6);
       }
     });
+  }
+
+  checkForImage = (url : string) : string => {
+    let newUrl = 'https://pin.it/3MwHvfm';
+     this.ecommerceService.getImage(url).subscribe({
+      next : res => {
+        newUrl = url;
+        return res;
+      }
+     }
+     );
+
+    return newUrl;
   }
 }
